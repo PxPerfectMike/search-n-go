@@ -1,5 +1,8 @@
+import { validateGraph } from './validateGraph';
+
 // Uses Depth-First Search
 export function depthFirstSearch(graph, root, target) {
+	validateGraph(graph);
 	const stack = [root];
 	const visited = new Set();
 

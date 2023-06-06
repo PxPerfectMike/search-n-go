@@ -1,5 +1,8 @@
+import { validateGraph } from './validateGraph';
+
 // Uses Breadth-First Search
 export function breadthFirstSearch(graph, root, target) {
+	validateGraph(graph);
 	const queue = [root];
 	const visited = new Set();
 
