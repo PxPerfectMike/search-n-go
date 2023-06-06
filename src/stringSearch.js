@@ -1,4 +1,7 @@
+import { validateArray } from './validateArray';
+
 export function stringSort(array, sortType) {
+	validateArray(array);
 	let result;
 
 	switch (sortType) {

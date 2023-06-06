@@ -1,5 +1,8 @@
+import { validateArray } from './validateArray';
+
 // Uses Recursive Search with loose equality
-export function recursiveSearch(target, array) {
+export function recursiveSearch(array, target) {
+	validateArray(array);
 	for (let i = 0; i < array.length; i++) {
 		if (Array.isArray(array[i])) {
 			const result = recursiveSearch(target, array[i]);

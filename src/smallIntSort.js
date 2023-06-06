@@ -1,6 +1,8 @@
-// This uses CountingSort
+import { validateArray } from './validateArray';
 
+// This uses CountingSort
 export function smallIntegersSort(array) {
+	validateArray(array);
 	let max = Math.max(...array);
 	let min = Math.min(...array);
 	let count = Array(max - min + 1).fill(0);

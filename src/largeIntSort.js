@@ -1,6 +1,8 @@
-// This uses RadixSort
+import { validateArray } from './validateArray';
 
+// This uses RadixSort
 export function largeIntegersSort(array) {
+	validateArray(array);
 	const maxNum = Math.max(...array) * 10;
 	let divisor = 10;
 	while (divisor < maxNum) {

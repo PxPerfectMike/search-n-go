@@ -1,6 +1,8 @@
-// This uses QuickSort
+import { validateArray } from './validateArray';
 
+// This uses QuickSort
 export function generalSort(array) {
+	validateArray(array);
 	if (array.length <= 1) {
 		return array;
 	}

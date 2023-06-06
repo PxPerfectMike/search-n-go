@@ -1,5 +1,8 @@
+import { validateArray } from './validateArray';
+
 // Uses Interpolation Search
 export function distributionSearch(array, target) {
+	validateArray(array);
 	let low = 0;
 	let high = array.length - 1;
 

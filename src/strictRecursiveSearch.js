@@ -1,5 +1,8 @@
+import { validateArray } from './validateArray';
+
 // Uses Recursive Search with strict equality
-export function strictRecursiveSearch(target, array) {
+export function strictRecursiveSearch(array, target) {
+	validateArray(array);
 	const targetType = typeof target;
 
 	for (let i = 0; i < array.length; i++) {

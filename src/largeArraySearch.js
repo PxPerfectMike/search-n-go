@@ -1,5 +1,8 @@
+import { validateArray } from './validateArray';
+
 // Uses Fibonacci Search
 export function largeArraySearch(array, target) {
+	validateArray(array);
 	let fibMMm2 = 0;
 	let fibMMm1 = 1;
 	let fibM = fibMMm2 + fibMMm1;

@@ -1,4 +1,8 @@
+import { validateArray } from './validateArray';
+
+// This uses BinarySearch
 export function binarySearch(value, array) {
+	validateArray(array);
 	let lower = 0;
 	let upper = array.length - 1;
 

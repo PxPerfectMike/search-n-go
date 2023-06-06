@@ -1,3 +1,5 @@
+import { validateArray } from './validateArray';
+
 // Uses Ternary Search
 export function partitionSearch(
 	array,
@@ -5,6 +7,7 @@ export function partitionSearch(
 	left = 0,
 	right = array.length - 1
 ) {
+	validateArray(array);
 	if (right >= left) {
 		const mid1 = left + Math.floor((right - left) / 3);
 		const mid2 = right - Math.floor((right - left) / 3);

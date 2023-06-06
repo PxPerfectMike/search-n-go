@@ -1,6 +1,8 @@
-// This uses InsertionSort
+import { validateArray } from './validateArray';
 
+// This uses InsertionSort
 export function smallOrNearlySortedSort(array) {
+	validateArray(array);
 	for (let i = 1; i < array.length; i++) {
 		let key = array[i];
 		let j = i - 1;

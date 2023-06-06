@@ -1,4 +1,7 @@
-export function binarySearchRange(minValue, maxValue, array) {
+import { validateArray } from './validateArray';
+
+export function binarySearchRange(array, minValue, maxValue) {
+	validateArray(array);
 	let lower = 0;
 	let upper = array.length - 1;
 
