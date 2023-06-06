@@ -27,5 +27,8 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/PxPerfectMike/search-n-go"
+	},
+	"devDependencies": {
+		"rollup": "^3.23.1"
 	}
 }
