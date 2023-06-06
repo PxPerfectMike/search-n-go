@@ -1,62 +1,14 @@
-export function stringSort(array, sortType) {
-	let result;
+// This uses InsertionSort
 
-	switch (sortType) {
-		case 'cs': // Case Sensitive
-			result = array.sort();
-			break;
-
-		case 'cs-rev': // Case Sensitive Reverse
-			result = array.sort().reverse();
-			break;
-
-		case 'ci': // Case Insensitive
-			result = array.sort((a, b) =>
-				a.toLowerCase().localeCompare(b.toLowerCase())
-			);
-			break;
-
-		case 'ci-rev': // Case Insensitive Reverse
-			result = array
-				.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
-				.reverse();
-			break;
-
-		case 'ls': // Locale Sensitive
-			result = array.sort((a, b) => a.localeCompare(b));
-			break;
-
-		case 'ls-rev': // Locale Sensitive Reverse
-			result = array.sort((a, b) => a.localeCompare(b)).reverse();
-			break;
-
-		case 'nat': // Natural Sorting
-			result = array.sort((a, b) =>
-				a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' })
-			);
-			break;
-
-		case 'nat-rev': // Natural Sorting Reverse
-			result = array
-				.sort((a, b) =>
-					a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' })
-				)
-				.reverse();
-			break;
-
-		case 'len': // Length-based Sorting
-			result = array.sort((a, b) => a.length - b.length);
-			break;
-
-		case 'len-rev': // Length-based Sorting Reverse
-			result = array.sort((a, b) => a.length - b.length).reverse();
-			break;
-
-		default:
-			throw new Error(
-				`Invalid sort type: ${sortType}. Please check the documentation for valid sort types.`
-			);
+export function smallOrNearlySortedSort(array) {
+	for (let i = 1; i < array.length; i++) {
+		let key = array[i];
+		let j = i - 1;
+		while (j >= 0 && array[j] > key) {
+			array[j + 1] = array[j];
+			j = j - 1;
+		}
+		array[j + 1] = key;
 	}
-
-	return result;
+	return array;
 }
