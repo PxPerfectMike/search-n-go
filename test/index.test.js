@@ -1,9 +1,3 @@
-// Assuming that your package is structured like so:
-// src/
-//   index.js
-//   basicSearch.js
-// and that basicSearch is exported from index.js
-
 import { basicSearch } from '../src/index.js';
 
 describe('Basic Search', () => {
@@ -18,7 +12,9 @@ describe('Basic Search', () => {
 	});
 
 	test('should return -1 for empty array', () => {
-		expect(basicSearch([], 30)).toBe(-1);
+		expect(() => {
+			const results = basicSearch([], 30);
+		}).toThrow('Input must be an array and must not be empty.');
 	});
 
 	test('should work with strings', () => {

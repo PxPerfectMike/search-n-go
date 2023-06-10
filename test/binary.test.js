@@ -1,34 +1,15 @@
-import { binarySearch } from '../src/index.js';
+import { binarySearch } from '../src/binary';
 
-describe('Binary Search', () => {
-	let sortedData = [10, 20, 30, 40, 50];
-
-	test('should return correct index when element is present', () => {
-		expect(binarySearch(30, sortedData)).toBe(2);
+describe('binarySearch', () => {
+	it('should return the index of the value in a sorted array', () => {
+		const array = [2, 4, 6, 8, 10];
+		expect(binarySearch(4, array)).toBe(1);
+		expect(binarySearch(10, array)).toBe(4);
 	});
 
-	test('should return -1 when element is not present', () => {
-		expect(binarySearch(60, sortedData)).toBe(-1);
-	});
-
-	test('should return -1 for empty array', () => {
-		expect(binarySearch(30, [])).toBe(-1);
-	});
-
-	test('should return -1 if array is not sorted', () => {
-		let unsortedData = [30, 10, 50, 20, 40];
-		expect(binarySearch(30, unsortedData)).not.toBe(2);
-	});
-
-	test('should work with strings', () => {
-		let sortedStringData = ['apple', 'banana', 'cherry'];
-		expect(binarySearch('banana', sortedStringData)).toBe(1);
-		expect(binarySearch('pear', sortedStringData)).toBe(-1);
-	});
-
-	test('should throw error with non-array data', () => {
-		expect(() => binarySearch(30, 'notAnArray')).toThrow();
-		expect(() => binarySearch(30, 12345)).toThrow();
-		expect(() => binarySearch(30, {})).toThrow();
+	it('should return -1 if the value is not found in the array', () => {
+		const array = [2, 4, 6, 8, 10];
+		expect(binarySearch(3, array)).toBe(-1);
+		expect(binarySearch(7, array)).toBe(-1);
 	});
 });

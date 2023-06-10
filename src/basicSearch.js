@@ -2,11 +2,7 @@ import { validateArray } from './validateArray';
 
 export function basicSearch(array, target) {
 	if (!validateArray(array)) {
-		if (!Array.isArray(array)) {
-			throw new Error('Input must be an array.');
-		} else {
-			throw new Error('Input array must not be empty.');
-		}
+		throw new Error('Input must be an array and must not be empty.');
 	}
 
 	for (let i = 0; i < array.length; i++) {
@@ -18,5 +14,6 @@ export function basicSearch(array, target) {
 			return i;
 		}
 	}
+
 	return -1;
 }

@@ -1,29 +1,25 @@
-import { basicSearch } from '../src/index.js';
+import { basicSearch } from '../src/basicSearch';
 
-describe('Basic Search', () => {
-	let data = [10, 20, 30, 40, 50];
-
-	test('should return correct index when element is present', () => {
-		expect(basicSearch(data, 30)).toBe(2);
+describe('basicSearch', () => {
+	it('should return the index of the target value in the array', () => {
+		const array = [2, 4, 6, 8, 10];
+		expect(basicSearch(array, 6)).toBe(2);
+		expect(basicSearch(array, 10)).toBe(4);
 	});
 
-	test('should return -1 when element is not present', () => {
-		expect(basicSearch(data, 60)).toBe(-1);
+	it('should return -1 if the target value is not found in the array', () => {
+		const array = [2, 4, 6, 8, 10];
+		expect(basicSearch(array, 3)).toBe(-1);
+		expect(basicSearch(array, 7)).toBe(-1);
 	});
 
-	test('should return -1 for empty array', () => {
-		expect(basicSearch([], 30)).toBe(-1);
+	it('should return the index of the target object in the array', () => {
+		const array = [{ id: 1 }, { id: 2 }, { id: 3 }];
+		expect(basicSearch(array, { id: 2 })).toBe(1);
 	});
 
-	test('should work with strings', () => {
-		let stringData = ['apple', 'banana', 'cherry'];
-		expect(basicSearch(stringData, 'banana')).toBe(1);
-		expect(basicSearch(stringData, 'pear')).toBe(-1);
-	});
-
-	test('should work with non-primitive types', () => {
-		let objectData = [{ id: 1 }, { id: 2 }, { id: 3 }];
-		expect(basicSearch(objectData, { id: 2 })).toBe(1);
-		expect(basicSearch(objectData, { id: 4 })).toBe(-1);
+	it('should return -1 if the target object is not found in the array', () => {
+		const array = [{ id: 1 }, { id: 2 }, { id: 3 }];
+		expect(basicSearch(array, { id: 4 })).toBe(-1);
 	});
 });
