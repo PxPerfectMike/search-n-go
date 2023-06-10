@@ -33,6 +33,7 @@ class HashTable {
 		}
 		return undefined;
 	}
+
 	_resize() {
 		const newSize = this.keyMap.length * 2;
 		const oldMap = this.keyMap;
