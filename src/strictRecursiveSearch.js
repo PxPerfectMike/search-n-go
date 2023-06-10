@@ -2,7 +2,13 @@ import { validateArray } from './validateArray';
 
 // Uses Recursive Search with strict equality
 export function strictRecursiveSearch(array, target) {
-	validateArray(array);
+	if (!validateArray(array)) {
+		if (!Array.isArray(array)) {
+			throw new Error('Input must be an array.');
+		} else {
+			throw new Error('Input array must not be empty.');
+		}
+	}
 	const targetType = typeof target;
 
 	for (let i = 0; i < array.length; i++) {

@@ -1,7 +1,13 @@
 import { validateArray } from './validateArray';
 
 export function stringSort(array, sortType) {
-	validateArray(array);
+	if (!validateArray(array)) {
+		if (!Array.isArray(array)) {
+			throw new Error('Input must be an array.');
+		} else {
+			throw new Error('Input array must not be empty.');
+		}
+	}
 	let result;
 
 	switch (sortType) {

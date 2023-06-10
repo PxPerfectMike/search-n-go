@@ -1,10 +1,14 @@
 // Helper function to validate input
 export function validateArray(input) {
 	if (!Array.isArray(input)) {
-		throw new Error('Input must be an array.');
+		console.error('Input must be an array.');
+		return false;
 	}
 
 	if (input.length === 0) {
-		throw new Error('Input array must not be empty.');
+		console.error('Input array must not be empty.');
+		return false;
 	}
+
+	return true;
 }

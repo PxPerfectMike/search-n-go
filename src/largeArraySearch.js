@@ -2,7 +2,13 @@ import { validateArray } from './validateArray';
 
 // Uses Fibonacci Search
 export function largeArraySearch(array, target) {
-	validateArray(array);
+	if (!validateArray(array)) {
+		if (!Array.isArray(array)) {
+			throw new Error('Input must be an array.');
+		} else {
+			throw new Error('Input array must not be empty.');
+		}
+	}
 	let fibMMm2 = 0;
 	let fibMMm1 = 1;
 	let fibM = fibMMm2 + fibMMm1;

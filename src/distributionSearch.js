@@ -2,7 +2,13 @@ import { validateArray } from './validateArray';
 
 // Uses Interpolation Search
 export function distributionSearch(array, target) {
-	validateArray(array);
+	if (!validateArray(array)) {
+		if (!Array.isArray(array)) {
+			throw new Error('Input must be an array.');
+		} else {
+			throw new Error('Input array must not be empty.');
+		}
+	}
 	let low = 0;
 	let high = array.length - 1;
 

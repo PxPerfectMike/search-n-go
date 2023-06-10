@@ -7,7 +7,13 @@ export function partitionSearch(
 	left = 0,
 	right = array.length - 1
 ) {
-	validateArray(array);
+	if (!validateArray(array)) {
+		if (!Array.isArray(array)) {
+			throw new Error('Input must be an array.');
+		} else {
+			throw new Error('Input array must not be empty.');
+		}
+	}
 	if (right >= left) {
 		const mid1 = left + Math.floor((right - left) / 3);
 		const mid2 = right - Math.floor((right - left) / 3);

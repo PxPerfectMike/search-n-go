@@ -1,4 +1,4 @@
-class HashTable {
+export class HashedSearch {
 	constructor(size = 53) {
 		this.keyMap = new Array(size);
 	}

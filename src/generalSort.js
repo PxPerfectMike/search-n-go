@@ -2,7 +2,13 @@ import { validateArray } from './validateArray';
 
 // This uses QuickSort
 export function generalSort(array) {
-	validateArray(array);
+	if (!validateArray(array)) {
+		if (!Array.isArray(array)) {
+			throw new Error('Input must be an array.');
+		} else {
+			throw new Error('Input array must not be empty.');
+		}
+	}
 	if (array.length <= 1) {
 		return array;
 	}

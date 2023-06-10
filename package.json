@@ -29,6 +29,9 @@
 		"url": "https://github.com/PxPerfectMike/search-n-go"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.22.5",
+		"@babel/preset-env": "^7.22.5",
+		"babel-jest": "^29.5.0",
 		"rollup": "^3.23.1"
 	},
 	"dependencies": {

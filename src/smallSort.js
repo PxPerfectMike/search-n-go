@@ -2,7 +2,13 @@ import { validateArray } from './validateArray';
 
 // This uses InsertionSort
 export function smallOrNearlySortedSort(array) {
-	validateArray(array);
+	if (!validateArray(array)) {
+		if (!Array.isArray(array)) {
+			throw new Error('Input must be an array.');
+		} else {
+			throw new Error('Input array must not be empty.');
+		}
+	}
 	for (let i = 1; i < array.length; i++) {
 		let key = array[i];
 		let j = i - 1;

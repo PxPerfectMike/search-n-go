@@ -1,8 +1,14 @@
 import { validateArray } from './validateArray';
 
-// This uses BinarySearch
 export function binarySearch(value, array) {
-	validateArray(array);
+	if (!validateArray(array)) {
+		if (!Array.isArray(array)) {
+			throw new Error('Input must be an array.');
+		} else {
+			throw new Error('Input array must not be empty.');
+		}
+	}
+
 	let lower = 0;
 	let upper = array.length - 1;
 
@@ -10,7 +16,7 @@ export function binarySearch(value, array) {
 		const middle = lower + Math.floor((upper - lower) / 2);
 
 		if (value === array[middle]) {
-			return middle && array[middle];
+			return middle;
 		}
 
 		if (value < array[middle]) {

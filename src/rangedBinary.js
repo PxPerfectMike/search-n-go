@@ -1,7 +1,13 @@
 import { validateArray } from './validateArray';
 
 export function binarySearchRange(array, minValue, maxValue) {
-	validateArray(array);
+	if (!validateArray(array)) {
+		if (!Array.isArray(array)) {
+			throw new Error('Input must be an array.');
+		} else {
+			throw new Error('Input array must not be empty.');
+		}
+	}
 	let lower = 0;
 	let upper = array.length - 1;
 
